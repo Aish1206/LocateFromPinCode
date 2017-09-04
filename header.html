@@ -1,0 +1,18 @@
+<div class="header" ng-controller="headerController as tab">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <p class="navbar-brand">PIAM</p> 
+            </div>
+            <ul class="nav navbar-nav">
+                <li ng-class="{active:tab.isSet(1)}"><a href="#!/" data-ng-click="tab.setTab(1)">Home</a></li>
+                <li ng-class="{active:tab.isSet(2)}"><a data-ng-click="changeView('/services');tab.setTab(2)">Services</a></li>
+                <li ng-class="{active:tab.isSet(3)}"><a data-ng-click="changeView('/ourTeam');tab.setTab(3)">Our Team</a></li>
+            </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li ng-class="{active:tab.isSet(4)}"><a data-ng-click="changeView('/signUp');tab.setTab(4)"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li ng-class="{active:tab.isSet(5)}"><a data-ng-click="changeView('/login');tab.setTab(5)"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+        </div>
+    </nav>
+</div>

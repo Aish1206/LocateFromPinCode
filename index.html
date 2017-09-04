@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="externalResources/js/angular/angular.js"></script>
+        <script src="externalResources/js/angular/angular-route.js"></script>
+        <script src="externalResources/js/bootstrap/ui-bootstrap.js"></script>
+        <script src="externalResources/js/angular/angular-animate.js"></script>
+        <script src="externalResources/js/angular/angular-sanitize.js"></script>
+        <script src="internalResources/js/deliverMyStuffModule.js"></script>
+        <script src="internalResources/js/deliverMyStuffController.js"></script>
+        <script src="internalResources/js/deliverMyStuffFilter.js"></script>
+        <script src="internalResources/js/mapDirective.js"></script>
+        <script src='http://maps.googleapis.com/maps/api/js'></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.js"></script>
+        <script src="https://rawgit.com/angular-ui/angular-google-maps/master/dist/angular-google-maps.js"></script>
+        <script src="http://rawgit.com/nmccready/angular-simple-logger/master/dist/angular-simple-logger.js"></script>
+        <script src="data/Pincode_US.json"></script>
+        <link rel="stylesheet" href="externalResources/css/bootstrap/bootstrap.min.css"/>
+        <link rel="stylesheet" href="internalResources/css/index.css">
+    </head>
+
+    <body ng-app="mainApp" ng-controller="deliveryController">
+       <div class="pincodeTable">
+           <div class="inner-addon right-addon">
+                <i class="glyphicon glyphicon-search"></i>
+                <input type="search" class="form-control" placeholder="Search" ng-model="search"/>
+             </div>
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Pincode</th>
+                    <th>State</th>
+                    <th>City</th>
+                </tr>
+                </thead>
+                <tbody ng-repeat="x in data | pagination: curPage * pageSize | limitTo: pageSize | filter:search" >
+                <tr ng-click="callDirFunc(x)">
+                    <td>{{ x.Pincode }}</td>
+                    <td> {{ x.State }}  </td>
+                    <td> {{ x.City }} </td>
+                </tr>
+                </tbody>
+            </table>
+             <div class="pagination pagination-centered" ng-show="data.length">
+                <ul class="pagination-controle pagination">
+                <li>
+                <button type="button" class="btn btn-primary" ng-disabled="curPage == 0"
+                ng-click="curPage=curPage-1"> &lt; PREV</button>
+                </li>
+                <li>
+                <span>Page {{curPage + 1}} of {{ numberOfPages() }}</span>
+                </li>
+                <li>
+                <button type="button" class="btn btn-primary"
+                ng-disabled="curPage >= data.length/pageSize - 1"
+                ng-click="curPage = curPage+1">NEXT &gt;</button>
+                </li>
+                </ul>
+             </div>
+       </div>
+       <div my-map="" options="dirOptions">
+       </div>
+    </body>
+</html>

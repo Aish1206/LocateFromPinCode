@@ -1,0 +1,54 @@
+.pincodeTable{
+    width: 50%; 
+    float: left; 
+    height: 630px;
+}
+
+.table{
+    max-width: 50%;
+    height: auto;
+}
+
+.paginationclass span{
+    margin-left:15px;
+    display:inline-block;
+}
+.pagination-controle li{
+    display: inline-block;
+}
+.pagination-controle button{
+    font-size: 12px;
+    margin-top: -26px;
+    cursor:pointer;
+    
+}
+.pagination{
+    margin:5px 12px ;
+}
+
+.inner-addon {
+  position: relative;
+}
+
+/* style glyph */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align glyph */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+#gmaps {
+    width: 50%; 
+    float: left; 
+    height: 630px;
+    margin-left: 50%; 
+    position:fixed !important;
+}
