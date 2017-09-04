@@ -62,7 +62,7 @@ mainApp.directive('myMap', function() {
         // show the map and place some markers
         initMap();
         
-        setMarker(map, new google.maps.LatLng(35.79, -105.99), 'New Mexico', 'Santa Fe, 35.79, -105.99');
+    //    setMarker(map, new google.maps.LatLng(35.79, -105.99), 'New Mexico', 'Santa Fe, 35.79, -105.99');
         
         
     };

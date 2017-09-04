@@ -29,12 +29,15 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th>Pincode</th>
-                    <th>State</th>
-                    <th>City</th>
+                    <th><a href="#" ng-click="orderByField='Pincode'; reverseSort = !reverseSort">Pincode <span ng-show="orderByField == 'Pincode'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a></th>
+                    <th><a href="#" ng-click="orderByField='State'; reverseSort = !reverseSort">State <span ng-show="orderByField == 'State'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a></th>
+                    <th><a href="#" ng-click="orderByField='City'; reverseSort = !reverseSort">City <span ng-show="orderByField == 'City'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
+          </a></th>
                 </tr>
                 </thead>
-                <tbody ng-repeat="x in data | pagination: curPage * pageSize | limitTo: pageSize | filter:search" >
+                <tbody ng-repeat="x in data | pagination: curPage * pageSize | limitTo: pageSize | filter:search | orderBy:orderByField:reverseSort" >
                 <tr ng-click="callDirFunc(x)">
                     <td>{{ x.Pincode }}</td>
                     <td> {{ x.State }}  </td>
